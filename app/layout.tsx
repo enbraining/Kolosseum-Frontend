@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import LocalFont from "next/font/local";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = LocalFont({
+    src: "../public/fonts/PretendardVariable.woff2",
+  });
 
 export const metadata: Metadata = {
   title: "Create Next App",
