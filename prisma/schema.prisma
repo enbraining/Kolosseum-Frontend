@@ -1,11 +1,11 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "../public/generated/client"
+  output   = "../generated/client"
 }
 
 datasource db {
   provider = "sqlite"
-  url      = "file:../public/data.db"
+  url      = "https://kol.fodo.dev/data.db"
 }
 
 model issues {
