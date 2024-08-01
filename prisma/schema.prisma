@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:../data.db"
+}
+
+model issues {
+  id          Int    @id @default(autoincrement())
+  year        Int    
+  name        String
+  description String
+  years       years  @relation(fields: [year], references: [year], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([year], map: "idx_issues_year")
+}
+
+model years {
+  year   Int      @id @default(autoincrement())
+  isVote Boolean
+  issues issues[]
+}

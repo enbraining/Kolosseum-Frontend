@@ -1,28 +1,44 @@
 "use client"
 
-import { useState } from "react";
-import { findYear, Issue } from "./data/issue";
+import { useCallback, useEffect, useState } from "react";
+import { findAllYear, findYear } from "./utils/prisma";
 
 export default function Home() {
-    const [year, setYear] = useState<Issue>()
-    const years = Array.from(Array(2024 - 1960).keys()).map(i => i + 1960);
+    const [issues, setIssues] = useState<any[]>([])
+    const [year, setYear] = useState<number>(0)
+    const [years, setYears] = useState<any[]>([])
+
+    useEffect(() => {
+        const fetchYears = async () => {
+            setYears(await findAllYear())
+        }
+        fetchYears()
+    }, [])
+
+    const onClick = useCallback((year: number) => {
+        const fetchYear = async () => {
+            setIssues(await findYear(year))
+        }
+
+        fetchYear()
+    }, [])
 
   return (
     <main className="grid w-full">
         <div className="absolute w-full overflow-x-scroll scrollbar-hide">
             <div className="mt-10 mx-auto text-stone-500 [writing-mode:vertical-lr] px-10">
-            {years.map(value =>
-                <div onClick={() => {setYear(findYear(value))}} key={value} className={`${value == year?.year ? "text-4xl text-stone-700 font-black" : "text-2xl"} font-bold no-touch:hover:font-black no-touch:hover:text-4xl no-touch:hover:text-stone-700 duration-150`}>{value}</div>)
+            {years.map(year =>
+                <div onClick={() => {onClick(year.year); setYear(year.year)}} key={year.year} className={`${year.year == year ? "text-4xl text-stone-700 font-black" : "text-2xl"} font-bold no-touch:hover:font-black no-touch:hover:text-4xl no-touch:hover:text-stone-700 duration-150`}>{year.year}</div>)
             }
             </div>
         </div>
         <div className="grid mt-[10rem] m-10">
-            {year ? <div className="w-full mx-auto grid gap-10">
-                <h1 className="text-4xl text-neutral-600 font-bold">{`${year.year}년, ${year.issue.length}개의 기록`}</h1>
-                {year.issue.map((value, index) =>
-                <div className="rounded-xl" key={index}>
-                    <h1 className="text-3xl text-red-950 font-bold">{value.name}</h1>
-                    <p className="text-xl font-medium">{value.description}</p>
+            {issues.length !== 0 ? <div className="w-full mx-auto grid gap-10">
+                <h1 className="text-4xl text-neutral-600 font-bold">{`${year}년, ${issues.length}개의 기록`}</h1>
+                {issues.map((issue) =>
+                <div className="rounded-xl" key={issue.id}>
+                    <h1 className="text-3xl text-red-950 font-bold">{issue.name}</h1>
+                    <p className="text-xl font-medium">{issue.description}</p>
                 </div>
             )}</div> : <div>
             <div className={'mb-5'}>    <h1 className="text-3xl text-red-950 font-bold">안녕하세요, 역사 기록 프로젝트</h1>

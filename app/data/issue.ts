@@ -1,15 +1,444 @@
 export function findYear(year: number){
-    return issues.find(issue => issue.year == year)
+    return years.find(value => value.year == year)
 }
 
-export interface Issue {
+export interface Year {
     year: number,
     issue: { name: string, description: string }[];
+    isVote: boolean
 }
 
-export const issues: Issue[] = [
+export interface YearTest {
+    year: number,
+    isVote: boolean
+}
+
+export const years: Year[] = [
+    {
+        year: 1919,
+        isVote: false,
+        issue: [
+          {
+            name: "3.1 운동",
+            description: "일제 강점기 최대 규모의 독립운동. 대한민국 임시정부 수립의 계기가 됨."
+          },
+          {
+            name: '조형균 외 10인 체포',
+            description: "조형균 외 10인이 조선총독부에 독립청원서를 제출함과 동시에 체포됨."
+          }
+        ]
+      },
+      {
+        year: 1920,
+        isVote: false,
+        issue: [
+          {
+            name: "청산리 대첩",
+            description: "김좌진, 홍범도 등이 이끈 독립군 연합부대가 일본군에 대승을 거둠."
+          }
+        ]
+      },
+      {
+        year: 1921,
+        isVote: false,
+        issue: [
+          {
+            name: "임시정부 처형사건",
+            description: "함남 풍산군 안수면에 거주하는 김병선ㆍ염상한은 임시정부에 반항하는 자로서 정부원에게 총살됨."
+          }
+        ]
+      },
+      {
+        year: 1922,
+        isVote: false,
+        issue: [
+          {
+            name: "제1차 조선교육령 개정",
+            description: "일제의 조선인 교육 정책 변화. 보통교육 연한 연장 등."
+          }
+        ]
+      },
+      {
+        year: 1923,
+        isVote: false,
+        issue: [
+          {
+            name: "관동대지진과 조선인 학살",
+            description: "일본 관동 지역 대지진 발생 후 조선인 대량 학살 사건."
+          }
+        ]
+      },
+      {
+        year: 1924,
+        isVote: false,
+        issue: [
+          {
+            name: "특별한 이슈 없음",
+            description: "이 해에 특별히 기록할 만한 중요 사건이 없었습니다."
+          }
+        ]
+      },
+      {
+        year: 1925,
+        isVote: false,
+        issue: [
+          {
+            name: "조선공산당 창당",
+            description: "한국 최초의 공산주의 정당 결성. 일제의 탄압으로 1928년 해체."
+          }
+        ]
+      },
+      {
+        year: 1926,
+        isVote: false,
+        issue: [
+          {
+            name: "6.10 만세운동",
+            description: "순종 황제 인산일을 계기로 한 독립만세 운동."
+          }
+        ]
+      },
+      {
+        year: 1927,
+        isVote: false,
+        issue: [
+          {
+            name: "신간회 결성",
+            description: "민족주의 계열과 사회주의 계열의 연합 항일 단체 결성."
+          }
+        ]
+      },
+      {
+        year: 1928,
+        isVote: false,
+        issue: [
+          {
+            name: "특별한 이슈 없음",
+            description: "이 해에 특별히 기록할 만한 중요 사건이 없었습니다."
+          }
+        ]
+      },
+      {
+        year: 1929,
+        isVote: false,
+        issue: [
+          {
+            name: "광주학생운동",
+            description: "일제 강점기 최대 규모의 학생 항일운동. 전국으로 확산됨."
+          }
+        ]
+      },
+      {
+        year: 1930,
+        isVote: false,
+        issue: [
+          {
+            name: "특별한 이슈 없음",
+            description: "이 해에 특별히 기록할 만한 중요 사건이 없었습니다."
+          }
+        ]
+      },
+      {
+        year: 1931,
+        isVote: false,
+        issue: [
+          {
+            name: "만주사변 발발",
+            description: "일본의 만주 침략. 한국 독립운동의 주요 무대 상실."
+          }
+        ]
+      },
+      {
+        year: 1932,
+        isVote: false,
+        issue: [
+          {
+            name: "윤봉길 의사 의거",
+            description: "상하이 훙커우 공원에서 일본 고위 관리들을 향해 폭탄을 투척."
+          }
+        ]
+      },
+      {
+        year: 1933,
+        isVote: false,
+        issue: [
+          {
+            name: "특별한 이슈 없음",
+            description: "이 해에 특별히 기록할 만한 중요 사건이 없었습니다."
+          }
+        ]
+      },
+      {
+        year: 1934,
+        isVote: false,
+        issue: [
+          {
+            name: "특별한 이슈 없음",
+            description: "이 해에 특별히 기록할 만한 중요 사건이 없었습니다."
+          }
+        ]
+      },
+      {
+        year: 1935,
+        isVote: false,
+        issue: [
+          {
+            name: "특별한 이슈 없음",
+            description: "이 해에 특별히 기록할 만한 중요 사건이 없었습니다."
+          }
+        ]
+      },
+      {
+        year: 1936,
+        isVote: false,
+        issue: [
+          {
+            name: "특별한 이슈 없음",
+            description: "이 해에 특별히 기록할 만한 중요 사건이 없었습니다."
+          }
+        ]
+      },
+      {
+        year: 1937,
+        isVote: false,
+        issue: [
+          {
+            name: "중일전쟁 발발",
+            description: "일본의 중국 침략 본격화. 한국인 강제 동원 심화."
+          }
+        ]
+      },
+      {
+        year: 1938,
+        isVote: false,
+        issue: [
+          {
+            name: "특별한 이슈 없음",
+            description: "이 해에 특별히 기록할 만한 중요 사건이 없었습니다."
+          }
+        ]
+      },
+      {
+        year: 1939,
+        isVote: false,
+        issue: [
+          {
+            name: "특별한 이슈 없음",
+            description: "이 해에 특별히 기록할 만한 중요 사건이 없었습니다."
+          }
+        ]
+      },
+      {
+        year: 1940,
+        isVote: false,
+        issue: [
+          {
+            name: "창씨개명 실시",
+            description: "일제의 민족말살정책의 일환으로 한국인의 성과 이름을 일본식으로 개명 강요."
+          }
+        ]
+      },
+      {
+        year: 1941,
+        isVote: false,
+        issue: [
+          {
+            name: "특별한 이슈 없음",
+            description: "이 해에 특별히 기록할 만한 중요 사건이 없었습니다."
+          }
+        ]
+      },
+      {
+        year: 1942,
+        isVote: false,
+        issue: [
+          {
+            name: "특별한 이슈 없음",
+            description: "이 해에 특별히 기록할 만한 중요 사건이 없었습니다."
+          }
+        ]
+      },
+      {
+        year: 1943,
+        isVote: false,
+        issue: [
+          {
+            name: "특별한 이슈 없음",
+            description: "이 해에 특별히 기록할 만한 중요 사건이 없었습니다."
+          }
+        ]
+      },
+      {
+        year: 1944,
+        isVote: false,
+        issue: [
+          {
+            name: "특별한 이슈 없음",
+            description: "이 해에 특별히 기록할 만한 중요 사건이 없었습니다."
+          }
+        ]
+      },
+      {
+        year: 1945,
+        isVote: false,
+        issue: [
+          {
+            name: "광복",
+            description: "일본의 항복으로 35년간의 일제 강점기 종료. 미군정 시작."
+          }
+        ]
+      },
+      {
+        year: 1946,
+        isVote: false,
+        issue: [
+          {
+            name: "특별한 이슈 없음",
+            description: "이 해에 특별히 기록할 만한 중요 사건이 없었습니다."
+          }
+        ]
+      },
+      {
+        year: 1947,
+        isVote: false,
+        issue: [
+          {
+            name: "특별한 이슈 없음",
+            description: "이 해에 특별히 기록할 만한 중요 사건이 없었습니다."
+          }
+        ]
+      },
+      {
+        year: 1948,
+        isVote: true,
+        issue: [
+          {
+            name: "대한민국 정부 수립",
+            description: "8월 15일 대한민국 정부 수립. 이승만 초대 대통령 취임."
+          },
+          {
+            name: "제주 4.3 사건",
+            description: "제주도에서 발생한 무력 충돌과 민간인 희생 사건."
+          }
+        ]
+      },
+      {
+        year: 1949,
+        isVote: false,
+        issue: [
+          {
+            name: "농지개혁법 제정",
+            description: "지주제 폐지와 농민의 토지 소유 실현을 위한 법률 제정."
+          }
+        ]
+      },
+      {
+        year: 1950,
+        isVote: false,
+        issue: [
+          {
+            name: "6.25 전쟁 발발",
+            description: "북한의 남침으로 한국전쟁 시작. 1953년 휴전 협정 체결까지 지속."
+          }
+        ]
+      },
+      {
+        year: 1951,
+        isVote: false,
+        issue: [
+          {
+            name: "특별한 이슈 없음",
+            description: "이 해에 특별히 기록할 만한 중요 사건이 없었습니다."
+          }
+        ]
+      },
+      {
+        year: 1952,
+        isVote: false,
+        issue: [
+          {
+            name: "특별한 이슈 없음",
+            description: "이 해에 특별히 기록할 만한 중요 사건이 없었습니다."
+          }
+        ]
+      },
+      {
+        year: 1953,
+        isVote: false,
+        issue: [
+          {
+            name: "한국전쟁 정전협정 체결",
+            description: "7월 27일 판문점에서 정전협정 체결. 전쟁 상태 일시 중지."
+          },
+          {
+            name: "한미상호방위조약 체결",
+            description: "한국과 미국 간 군사동맹 관계 수립."
+          }
+        ]
+      },
+      {
+        year: 1954,
+        isVote: false,
+        issue: [
+          {
+            name: "특별한 이슈 없음",
+            description: "이 해에 특별히 기록할 만한 중요 사건이 없었습니다."
+          }
+        ]
+      },
+      {
+        year: 1955,
+        isVote: false,
+        issue: [
+          {
+            name: "특별한 이슈 없음",
+            description: "이 해에 특별히 기록할 만한 중요 사건이 없었습니다."
+          }
+        ]
+      },
+      {
+        year: 1956,
+        isVote: false,
+        issue: [
+          {
+            name: "특별한 이슈 없음",
+            description: "이 해에 특별히 기록할 만한 중요 사건이 없었습니다."
+          }
+        ]
+      },
+      {
+        year: 1957,
+        isVote: false,
+        issue: [
+          {
+            name: "특별한 이슈 없음",
+            description: "이 해에 특별히 기록할 만한 중요 사건이 없었습니다."
+          }
+        ]
+      },
+      {
+        year: 1958,
+        isVote: false,
+        issue: [
+          {
+            name: "특별한 이슈 없음",
+            description: "이 해에 특별히 기록할 만한 중요 사건이 없었습니다."
+          }
+        ]
+      },
+      {
+        year: 1959,
+        isVote: false,
+        issue: [
+          {
+            name: "경향신문 폐간",
+            description: "이승만 정권의 언론 탄압으로 경향신문 강제 폐간."
+          }
+        ]
+      },
     {
       year: 1960,
+      isVote: false,
       issue: [
         {
           name: "4.19 혁명",
@@ -23,6 +452,7 @@ export const issues: Issue[] = [
     },
     {
       year: 1961,
+      isVote: false,
       issue: [
         {
           name: "5.16 군사정변",
@@ -32,6 +462,7 @@ export const issues: Issue[] = [
     },
     {
       year: 1962,
+      isVote: false,
       issue: [
         {
           name: "제1차 경제개발 5개년 계획 시작",
@@ -45,6 +476,7 @@ export const issues: Issue[] = [
     },
     {
       year: 1963,
+      isVote: false,
       issue: [
         {
           name: "박정희 대통령 당선",
@@ -58,6 +490,7 @@ export const issues: Issue[] = [
     },
     {
       year: 1964,
+      isVote: false,
       issue: [
         {
           name: "6.3 한일회담 반대 시위",
@@ -71,6 +504,7 @@ export const issues: Issue[] = [
     },
     {
       year: 1965,
+      isVote: false,
       issue: [
         {
           name: "한일 기본조약 체결",
@@ -84,6 +518,7 @@ export const issues: Issue[] = [
     },
     {
       year: 1966,
+      isVote: false,
       issue: [
         {
           name: "브라운 각서 체결",
@@ -97,6 +532,7 @@ export const issues: Issue[] = [
     },
     {
       year: 1967,
+      isVote: false,
       issue: [
         {
           name: "제6대 대통령 선거",
@@ -110,6 +546,7 @@ export const issues: Issue[] = [
     },
     {
       year: 1968,
+      isVote: false,
       issue: [
         {
           name: "1.21 사태",
@@ -123,6 +560,7 @@ export const issues: Issue[] = [
     },
     {
       year: 1969,
+      isVote: false,
       issue: [
         {
           name: "3선 개헌",
@@ -136,6 +574,7 @@ export const issues: Issue[] = [
     },
     {
       year: 1970,
+      isVote: false,
       issue: [
         {
           name: "새마을운동 시작",
@@ -149,6 +588,7 @@ export const issues: Issue[] = [
     },
     {
       year: 1971,
+      isVote: false,
       issue: [
         {
           name: "제7대 대통령 선거",
@@ -162,6 +602,7 @@ export const issues: Issue[] = [
     },
     {
       year: 1972,
+      isVote: false,
       issue: [
         {
           name: "7.4 남북공동성명",
@@ -175,6 +616,7 @@ export const issues: Issue[] = [
     },
     {
       year: 1973,
+      isVote: false,
       issue: [
         {
           name: "제1차 석유파동",
@@ -188,6 +630,7 @@ export const issues: Issue[] = [
     },
     {
       year: 1974,
+      isVote: false,
       issue: [
         {
           name: "민청학련 사건",
@@ -201,6 +644,7 @@ export const issues: Issue[] = [
     },
     {
       year: 1975,
+      isVote: false,
       issue: [
         {
           name: "베트남 전쟁 종전",
@@ -214,6 +658,7 @@ export const issues: Issue[] = [
     },
     {
       year: 1976,
+      isVote: false,
       issue: [
         {
           name: "3.1 민주구국선언",
@@ -227,6 +672,7 @@ export const issues: Issue[] = [
     },
     {
       year: 1977,
+      isVote: false,
       issue: [
         {
           name: "제4차 경제개발 5개년 계획 시작",
@@ -240,6 +686,7 @@ export const issues: Issue[] = [
     },
     {
       year: 1978,
+      isVote: false,
       issue: [
         {
           name: "제10대 국회의원 선거",
@@ -253,6 +700,7 @@ export const issues: Issue[] = [
     },
     {
       year: 1979,
+      isVote: false,
       issue: [
         {
           name: "YH무역 사건",
@@ -270,6 +718,7 @@ export const issues: Issue[] = [
     },
     {
       year: 1980,
+      isVote: false,
       issue: [
         {
           name: "서울의 봄",
@@ -287,6 +736,7 @@ export const issues: Issue[] = [
     },
     {
       year: 1981,
+      isVote: false,
       issue: [
         {
           name: "전두환 제11대 대통령 취임",
@@ -300,6 +750,7 @@ export const issues: Issue[] = [
     },
     {
       year: 1982,
+      isVote: false,
       issue: [
         {
           name: "야간통행금지 해제",
@@ -313,6 +764,7 @@ export const issues: Issue[] = [
     },
     {
       year: 1983,
+      isVote: false,
       issue: [
         {
           name: "아웅산 테러 사건",
@@ -326,6 +778,7 @@ export const issues: Issue[] = [
     },
     {
       year: 1984,
+      isVote: false,
       issue: [
         {
           name: "남북경제회담 개최",
@@ -339,6 +792,7 @@ export const issues: Issue[] = [
     },
     {
       year: 1985,
+      isVote: false,
       issue: [
         {
           name: "제12대 국회의원 선거",
@@ -352,6 +806,7 @@ export const issues: Issue[] = [
     },
     {
         year: 1986,
+        isVote: false,
         issue: [
           {
             name: "86 아시안게임 개최",
@@ -365,6 +820,7 @@ export const issues: Issue[] = [
       },
       {
         year: 1987,
+        isVote: true,
         issue: [
           {
             name: "박종철 고문치사 사건",
@@ -386,6 +842,7 @@ export const issues: Issue[] = [
       },
       {
         year: 1988,
+        isVote: false,
         issue: [
           {
             name: "서울 올림픽 개최",
@@ -399,6 +856,7 @@ export const issues: Issue[] = [
       },
       {
         year: 1989,
+        isVote: false,
         issue: [
           {
             name: "전국교직원노동조합(전교조) 결성",
@@ -412,6 +870,7 @@ export const issues: Issue[] = [
       },
       {
         year: 1990,
+        isVote: false,
         issue: [
           {
             name: "3당 합당",
@@ -425,6 +884,7 @@ export const issues: Issue[] = [
       },
       {
         year: 1991,
+        isVote: false,
         issue: [
           {
             name: "남북 기본합의서 채택",
@@ -438,6 +898,7 @@ export const issues: Issue[] = [
       },
       {
         year: 1992,
+        isVote: true,
         issue: [
           {
             name: "한중 수교",
@@ -451,6 +912,7 @@ export const issues: Issue[] = [
       },
       {
         year: 1993,
+        isVote: false,
         issue: [
           {
             name: "김영삼 정부 출범",
@@ -464,6 +926,7 @@ export const issues: Issue[] = [
       },
       {
         year: 1994,
+        isVote: false,
         issue: [
           {
             name: "김일성 사망",
@@ -477,6 +940,7 @@ export const issues: Issue[] = [
       },
       {
         year: 1995,
+        isVote: false,
         issue: [
           {
             name: "삼풍백화점 붕괴 사고",
@@ -490,6 +954,7 @@ export const issues: Issue[] = [
       },
       {
         year: 1996,
+        isVote: false,
         issue: [
           {
             name: "OECD 가입",
@@ -503,6 +968,7 @@ export const issues: Issue[] = [
       },
       {
         year: 1997,
+        isVote: true,
         issue: [
           {
             name: "IMF 외환위기",
@@ -516,6 +982,7 @@ export const issues: Issue[] = [
       },
       {
         year: 1998,
+        isVote: false,
         issue: [
           {
             name: "김대중 정부 출범",
@@ -529,6 +996,7 @@ export const issues: Issue[] = [
       },
       {
         year: 1999,
+        isVote: false,
         issue: [
           {
             name: "금강산 관광 시작",
@@ -542,6 +1010,7 @@ export const issues: Issue[] = [
       },
       {
         year: 2000,
+        isVote: false,
         issue: [
           {
             name: "제1차 남북정상회담",
@@ -555,6 +1024,7 @@ export const issues: Issue[] = [
       },
       {
         year: 2001,
+        isVote: false,
         issue: [
           {
             name: "9.11 테러",
@@ -568,6 +1038,7 @@ export const issues: Issue[] = [
       },
       {
         year: 2002,
+        isVote: true,
         issue: [
           {
             name: "한일 월드컵 공동 개최",
@@ -585,6 +1056,7 @@ export const issues: Issue[] = [
       },
       {
         year: 2003,
+        isVote: false,
         issue: [
           {
             name: "노무현 정부 출범",
@@ -598,6 +1070,7 @@ export const issues: Issue[] = [
       },
       {
         year: 2004,
+        isVote: false,
         issue: [
           {
             name: "탄핵 소추안 가결 및 기각",
@@ -611,6 +1084,7 @@ export const issues: Issue[] = [
       },
       {
         year: 2005,
+        isVote: false,
         issue: [
           {
             name: "황우석 줄기세포 논문 조작 사건",
@@ -624,6 +1098,7 @@ export const issues: Issue[] = [
       },
       {
         year: 2006,
+        isVote: false,
         issue: [
           {
             name: "북한 첫 핵실험",
@@ -637,6 +1112,7 @@ export const issues: Issue[] = [
       },
       {
         year: 2007,
+        isVote: true,
         issue: [
           {
             name: "제2차 남북정상회담",
@@ -649,7 +1125,8 @@ export const issues: Issue[] = [
         ]
       },
       {
-        year: 2008,
+        year: 2013,
+        isVote: false,
         issue: [
           {
             name: "이명박 정부 출범",
@@ -663,6 +1140,7 @@ export const issues: Issue[] = [
       },
       {
         year: 2009,
+        isVote: false,
         issue: [
           {
             name: "노무현 전 대통령 서거",
@@ -676,6 +1154,7 @@ export const issues: Issue[] = [
       },
       {
         year: 2010,
+        isVote: false,
         issue: [
           {
             name: "천안함 침몰 사건",
@@ -689,6 +1168,7 @@ export const issues: Issue[] = [
       },
       {
         year: 2011,
+        isVote: false,
         issue: [
           {
             name: "한EU FTA 발효",
@@ -702,6 +1182,7 @@ export const issues: Issue[] = [
       },
       {
         year: 2012,
+        isVote: false,
         issue: [
           {
             name: "박근혜 제18대 대통령 당선",
@@ -716,6 +1197,7 @@ export const issues: Issue[] = [
 
   {
     year: 2013,
+    isVote: false,
     issue: [
       {
         name: "박근혜 정부 출범",
@@ -729,6 +1211,7 @@ export const issues: Issue[] = [
   },
   {
     year: 2014,
+    isVote: false,
     issue: [
       {
         name: "세월호 침몰 사고",
@@ -742,6 +1225,7 @@ export const issues: Issue[] = [
   },
   {
     year: 2015,
+    isVote: false,
     issue: [
       {
         name: "메르스(MERS) 사태",
@@ -755,6 +1239,7 @@ export const issues: Issue[] = [
   },
   {
     year: 2016,
+    isVote: false,
     issue: [
       {
         name: "박근혜-최순실 국정농단 사태",
@@ -768,6 +1253,7 @@ export const issues: Issue[] = [
   },
   {
     year: 2017,
+    isVote: false,
     issue: [
       {
         name: "박근혜 대통령 탄핵",
@@ -785,6 +1271,7 @@ export const issues: Issue[] = [
   },
   {
     year: 2018,
+    isVote: false,
     issue: [
       {
         name: "평창 동계올림픽 개최",
@@ -802,6 +1289,7 @@ export const issues: Issue[] = [
   },
   {
     year: 2019,
+    isVote: false,
     issue: [
       {
         name: "일본의 수출규제",
@@ -815,6 +1303,7 @@ export const issues: Issue[] = [
   },
   {
     year: 2020,
+    isVote: false,
     issue: [
       {
         name: "코로나19 팬데믹",
@@ -828,6 +1317,7 @@ export const issues: Issue[] = [
   },
   {
     year: 2021,
+    isVote: false,
     issue: [
       {
         name: "코로나19 백신 접종 시작",
@@ -841,6 +1331,7 @@ export const issues: Issue[] = [
   },
   {
     year: 2022,
+    isVote: false,
     issue: [
       {
         name: "윤석열 제20대 대통령 당선",
@@ -858,6 +1349,7 @@ export const issues: Issue[] = [
   },
   {
     year: 2023,
+    isVote: false,
     issue: [
       {
         name: "한일 관계 개선",
