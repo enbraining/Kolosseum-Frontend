@@ -12,7 +12,7 @@ export default function Home() {
         <div className="absolute w-full overflow-x-scroll scrollbar-hide">
             <div className="mt-10 mx-auto text-stone-500 [writing-mode:vertical-lr] px-10">
             {years.map(value =>
-                <div onClick={() => {setYear(findYear(value))}} key={value} className={`${value == year?.year ? "text-4xl text-stone-700 font-black" : "hover:font-black hover:text-4xl hover:text-stone-700"} font-bold duration-150 text-2xl`}>{value}</div>)
+                <div onClick={() => {setYear(findYear(value))}} key={value} className={`${value == year?.year ? "text-4xl text-stone-700 font-black" : "text-2xl"} font-bold no-touch:hover:font-black no-touch:hover:text-4xl no-touch:hover:text-stone-700 duration-150`}>{value}</div>)
             }
             </div>
         </div>
