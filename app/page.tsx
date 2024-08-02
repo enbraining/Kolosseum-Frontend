@@ -1,31 +1,34 @@
 "use client"
 
 import { useCallback, useState } from "react";
+import styled from "styled-components";
 import allIssue from './data/issue.json';
 import { Issue } from "./type/issue";
 
 export default function Home() {
-    const [issues, setIssues] = useState<Issue[]>([])
-    const [currentYear, setCurrentYear] = useState<number>(0)
     const years = Array.from({ length: 2024 - 1919 + 1 }, (_, index) => 1919 + index);
+    const [issues, setIssues] = useState<Issue[]>([])
 
     const onClick = useCallback((year: number) => {
         setIssues(allIssue.filter(issue => issue.year == year))
-        setCurrentYear(year)
     }, [])
+
+    const StyledYears = styled.div`
+        user-select: none;
+    `
 
   return (
     <main className="grid w-full">
         <div className="absolute w-full overflow-x-scroll scrollbar-hide">
-            <div className="mt-10 mx-auto text-stone-500 [writing-mode:vertical-lr] px-10">
+            <StyledYears className="mt-10 mx-auto text-stone-500 [writing-mode:vertical-lr] px-10">
             {years.map(year =>
-                <div onClick={() => {onClick(year);}} key={year} className={`${year == currentYear ? "text-4xl text-stone-700 font-black" : "text-2xl"} font-bold no-touch:hover:font-black no-touch:hover:text-4xl no-touch:hover:text-stone-700 duration-150`}>{year}</div>)
+                <div onClick={() => {onClick(year);}} key={year} className={`${year == issues.at(0)?.year ? "text-4xl text-stone-700 font-black" : "text-2xl"} font-bold no-touch:hover:font-black no-touch:hover:text-4xl no-touch:hover:text-stone-700 duration-150`}>{year}</div>)
             }
-            </div>
+            </StyledYears>
         </div>
         <div className="grid mt-[10rem] m-10">
             {issues.length !== 0 ? <div className="w-full mx-auto grid gap-10">
-                <h1 className="text-4xl text-neutral-600 font-bold">{`${currentYear}년, ${issues.length}개의 기록`}</h1>
+                <h1 className="text-4xl text-neutral-600 font-bold">{`${issues.at(0)?.year}년, ${issues.length}개의 기록`}</h1>
                 {issues.map((issue) =>
                 <div className="rounded-xl" key={issue.id}>
                     <h1 className="text-3xl text-red-950 font-bold">{issue.name}</h1>
