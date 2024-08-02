@@ -1,13 +1,12 @@
 "use client"
 
 import { useCallback, useEffect, useState } from "react";
-import { Issue, Year } from "./type/issue";
 import { findAllYear, findYear } from "./utils/prisma";
 
 export default function Home() {
-    const [issues, setIssues] = useState<Issue[]>([])
+    const [issues, setIssues] = useState<any[]>([])
     const [currentYear, setCurrentYear] = useState<number>(0)
-    const [years, setYears] = useState<Year[]>([])
+    const [years, setYears] = useState<any[]>([])
 
     useEffect(() => {
         const fetchYears = async () => {
