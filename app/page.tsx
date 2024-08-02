@@ -1,7 +1,7 @@
 "use client"
 
 import { useCallback, useState } from "react";
-import { findYear } from "./utils/prisma";
+import allIssue from './data/issue.json';
 
 export default function Home() {
     const [issues, setIssues] = useState<any[]>([])
@@ -9,10 +9,8 @@ export default function Home() {
     const years = Array.from({ length: 2024 - 1919 + 1 }, (_, index) => 1919 + index);
 
     const onClick = useCallback((year: number) => {
-        const fetchYear = async () => {
-            setIssues(await findYear(year))
-        }
-        fetchYear()
+        setIssues(allIssue.filter(issue => issue.year == year))
+        setCurrentYear(year)
     }, [])
 
   return (
@@ -20,7 +18,7 @@ export default function Home() {
         <div className="absolute w-full overflow-x-scroll scrollbar-hide">
             <div className="mt-10 mx-auto text-stone-500 [writing-mode:vertical-lr] px-10">
             {years.map(year =>
-                <div onClick={() => {onClick(year); setCurrentYear(year)}} key={year} className={`${year == currentYear ? "text-4xl text-stone-700 font-black" : "text-2xl"} font-bold no-touch:hover:font-black no-touch:hover:text-4xl no-touch:hover:text-stone-700 duration-150`}>{year}</div>)
+                <div onClick={() => {onClick(year);}} key={year} className={`${year == currentYear ? "text-4xl text-stone-700 font-black" : "text-2xl"} font-bold no-touch:hover:font-black no-touch:hover:text-4xl no-touch:hover:text-stone-700 duration-150`}>{year}</div>)
             }
             </div>
         </div>
