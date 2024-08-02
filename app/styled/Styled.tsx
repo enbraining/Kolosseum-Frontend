@@ -11,4 +11,5 @@ export const StyledInput = styled.input`
   margin: 1rem 0;
   padding-bottom: 0.3rem;
   outline: none;
+  width: 100%;
 `;
