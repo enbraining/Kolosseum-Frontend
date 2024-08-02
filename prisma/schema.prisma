@@ -1,6 +1,5 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/client"
 }
 
 datasource db {
@@ -8,18 +7,18 @@ datasource db {
   url      = "file:../public/data.db"
 }
 
-model issues {
+model issue {
   id          Int    @id @default(autoincrement())
   year        Int
   name        String
   description String
-  years       years  @relation(fields: [year], references: [year], onDelete: NoAction, onUpdate: NoAction)
+  years       year   @relation(fields: [year], references: [year], onDelete: NoAction, onUpdate: NoAction)
 
   @@index([year], map: "idx_issues_year")
 }
 
-model years {
-  year   Int      @id @default(autoincrement())
+model year {
+  year   Int     @id @default(autoincrement())
   isVote Boolean
-  issues issues[]
+  issues issue[]
 }

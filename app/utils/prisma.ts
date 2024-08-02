@@ -5,11 +5,11 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 export async function findAllYear() {
-  return await prisma.years.findMany();
+  return await prisma.year.findMany();
 }
 
 export async function findYear(year: number) {
-  return await prisma.issues.findMany({
+  return await prisma.issue.findMany({
     where: {
       year: year,
     },
