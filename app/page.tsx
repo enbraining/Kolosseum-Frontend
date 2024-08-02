@@ -11,7 +11,9 @@ export default function Home() {
     const [issues, setIssues] = useState<Issue[]>([])
 
     const onClick = useCallback((year: number) => {
-        setIssues(allIssue.filter(issue => issue.year == year))
+        const findIssues = allIssue.filter(issue => issue.year == year);
+        if(findIssues.length == 0 && year != 0) toast.error(`${year}년에는 현재 데이터가 없습니다.`);
+        setIssues(findIssues)
     }, [])
 
     const onEnter = useCallback((e: any) => {
@@ -26,7 +28,7 @@ export default function Home() {
     <main className="grid w-full">
         <div className="absolute w-full overflow-x-scroll scrollbar-hide">
             <StyledYears className="mt-10 mx-auto text-stone-500 [writing-mode:vertical-lr] px-10">
-            <div onClick={() => {onClick(0);}} className={`${issues.length == 0 && "text-4xl text-stone-700 font-black"} text-2xl font-bold no-touch:hover:font-black no-touch:hover:text-4xl no-touch:hover:text-stone-700 duration-150`}>{'0000'}</div>
+            <div onClick={() => {onClick(0)}} className={`${issues.length == 0 && "text-4xl text-stone-700 font-black"} text-2xl font-bold no-touch:hover:font-black no-touch:hover:text-4xl no-touch:hover:text-stone-700 duration-150`}>{'0000'}</div>
             {years.map(year =>
                 <div onClick={() => {onClick(year);}} key={year} className={`${year == issues.at(0)?.year ? "text-4xl text-stone-700 font-black" : "text-2xl"} font-bold no-touch:hover:font-black no-touch:hover:text-4xl no-touch:hover:text-stone-700 duration-150`}>{year}</div>
             )}
