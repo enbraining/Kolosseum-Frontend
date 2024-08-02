@@ -2,9 +2,10 @@
 
 import { useCallback, useState } from "react";
 import allIssue from './data/issue.json';
+import { Issue } from "./type/issue";
 
 export default function Home() {
-    const [issues, setIssues] = useState<any[]>([])
+    const [issues, setIssues] = useState<Issue[]>([])
     const [currentYear, setCurrentYear] = useState<number>(0)
     const years = Array.from({ length: 2024 - 1919 + 1 }, (_, index) => 1919 + index);
 
