@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import LocalFont from 'next/font/local';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/ReactToastify.css';
+import Footer from './components/Footer';
 import './globals.css';
 
 const inter = LocalFont({
@@ -20,8 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-        <body className={inter.className}>
+        <body className={inter.className + " mx-10"}>
             {children}
+            <Footer />
             <ToastContainer
                 position="top-right"
                 autoClose={3000}

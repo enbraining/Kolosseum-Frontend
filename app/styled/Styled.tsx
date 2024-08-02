@@ -13,3 +13,7 @@ export const StyledInput = styled.input`
   outline: none;
   width: 100%;
 `;
+
+export const StyledFooter = styled.footer`
+    border-top: 2px solid #450a0a;
+`

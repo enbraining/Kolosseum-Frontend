@@ -27,15 +27,15 @@ export default function Home() {
 
   return (
     <main className="grid w-full">
-        <div className="absolute w-full overflow-x-scroll scrollbar-hide">
-            <StyledYears className="mt-10 mx-auto text-stone-500 [writing-mode:vertical-lr] px-10">
+        <div className="w-full overflow-x-scroll scrollbar-hide">
+            <StyledYears className="mt-10 mx-auto text-stone-500 [writing-mode:vertical-lr]">
             <div onClick={() => {onClick(0)}} className={`${!issue && "text-4xl text-stone-700 font-black"} text-2xl font-bold no-touch:hover:font-black no-touch:hover:text-4xl no-touch:hover:text-stone-700 duration-150`}>{'0000'}</div>
             {years.map(year =>
                 <div onClick={() => {onClick(year);}} key={year} className={`${year == issue?.year ? "text-4xl text-stone-700 font-black" : "text-2xl"} font-bold no-touch:hover:font-black no-touch:hover:text-4xl no-touch:hover:text-stone-700 duration-150`}>{year}</div>
             )}
             </StyledYears>
         </div>
-        <div className="grid mt-[10rem] m-10">
+        <div className="grid mt-[1rem]">
             {issue ? (
             <div className="w-full mx-auto grid gap-10">
                 <h1 className="text-4xl text-neutral-600 font-bold">{`${issue.year}년, ${issue.history.length}개의 기록`}</h1>
