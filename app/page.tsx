@@ -2,6 +2,7 @@
 
 import { useCallback, useState } from "react";
 import { toast } from "react-toastify";
+import BabyChart from "./components/BabyChart";
 import allIssue from './data/issue.json';
 import { StyledInput, StyledYears } from "./styled/Styled";
 import { Issue } from "./type/issue";
@@ -53,6 +54,9 @@ export default function Home() {
                         </div>
                         <p className="text-xl font-medium">현재는 데이터가 정확하지 않을 수도 있으며 이슈 혹은 메일을 보내주시면 빠르게 추가하거나 수정하겠습니다.</p>
                         <p className="text-xl font-medium">me@fodo.dev</p>
+                        <div className="min-w-full mt-[2rem]">
+                            <BabyChart />
+                        </div>
                     </div>
             )}
         </div>
