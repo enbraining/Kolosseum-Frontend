@@ -3,22 +3,23 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:../public/data.db"
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
 model issue {
-  id          Int    @id @default(autoincrement())
-  year        Int
-  name        String
-  description String
-  years       year   @relation(fields: [year], references: [year], onDelete: NoAction, onUpdate: NoAction)
+  id                    Int    @id @default(autoincrement())
+  year                  Int
+  name                  String
+  description           String
+  year_issue_yearToyear year   @relation("issue_yearToyear", fields: [year], references: [year], onDelete: NoAction, onUpdate: NoAction)
 
   @@index([year], map: "idx_issues_year")
 }
 
 model year {
-  year   Int     @id @default(autoincrement())
-  isVote Boolean
-  issues issue[]
+  year                   Int      @id(map: "year_pk")
+  isvote                 Boolean?
+  issue_issue_yearToyear issue[]  @relation("issue_yearToyear")
 }
