@@ -1,5 +1,5 @@
 export interface Issue {
-  year: number;
+  year: string;
   history: {
     name: string;
     description: string;

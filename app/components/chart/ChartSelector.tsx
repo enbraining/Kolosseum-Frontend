@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react"
 import styled from "styled-components"
-import BabyChart from "./BabyChart"
 import TestChart from "./TestChart"
+import BabyChart from "./BabyChart"
 
 const StyledSelector = ({ value, type, children, onClick, ...props }: any) => {
     const Styled = styled.div`
