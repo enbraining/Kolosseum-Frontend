@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import LocalFont from 'next/font/local';
+import { headers } from 'next/headers';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/ReactToastify.css';
 import Footer from './components/Footer';
@@ -19,8 +20,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode,
 }>) {
+  const language = headers().get("Accept-Language")?.split(/,/).at(0)
+
   return (
-    <html lang="en">
+    <html lang={language}>
         <body className={inter.className + " mx-10"}>
             {children}
             <Footer />
