@@ -3,11 +3,13 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import allIssue from './data/issue.json';
-import allNews from './data/news.json';
-import allNotice from './data/notice.json';
-import { StyledYears } from "./styled/Styled";
-import { Issue } from "./type/issue";
+import allIssue from './datas/issue.json';
+import allNews from './datas/news.json';
+import allNotice from './datas/notice.json';
+import Layout from "./layout/Layout";
+import { StyledYears } from "./styled/Tag";
+import { H1 } from "./styled/Text";
+import { Issue } from "./types/issue";
 
 export default function Home() {
     const years: string[] = ['0000', ...Array.from({ length: 2024 - 1919 + 1 }, (_, index) => (1919 + index).toString())];
@@ -22,7 +24,7 @@ export default function Home() {
     }, [currentYear])
 
     return (
-        <main className="mx-10">
+        <Layout>
         <div className="overflow-x-scroll scrollbar-hide sm:h-[6rem] h-[5rem]">
             <StyledYears id="years" className="mx-auto text-stone-500 [writing-mode:vertical-lr]">
             {years.map(year =>
@@ -39,7 +41,7 @@ export default function Home() {
                 <h1 className="text-4xl text-neutral-600 font-bold">{`${issue.year}년, ${issue.history.length}개의 기록`}</h1>
                 {issue.history.map((history, index) =>
                     <div className="rounded-xl" key={index}>
-                        <h1 className="text-3xl text-red-950 font-bold">{history.name}</h1>
+                        <H1>{history.name}</H1>
                         <p className="text-xl font-medium">{history.description}</p>
                     </div>
                 )}
@@ -52,7 +54,7 @@ export default function Home() {
                                 </div>
                                 <div className="mt-5 grid gap-y-3">
                                     {allNews.map((news, index) => <div key={index}>
-                                        <h1 className="font-semibold">{news.name}</h1>
+                                        <h2 className="font-semibold">{news.name}</h2>
                                         <p>{news.createdAt}</p>
                                     </div>)}
                                 </div>
@@ -63,17 +65,15 @@ export default function Home() {
                                 </div>
                                 <div className="mt-5 grid gap-y-3">
                                     {allNews.map((news, index) => <div key={index}>
-                                        <h1 className="font-semibold">{news.name}</h1>
+                                        <p className="font-semibold">{news.name}</p>
                                         <p>{news.createdAt}</p>
                                     </div>)}
                                 </div>
                             </div>
                         </div>
-                        <div className="h-min grid gap-y-3">
-                            <div className="text-red-950 font-semibold text-2xl">
-                                <h1>역사를 보존하다.</h1>
-                                <h1>Kolosseum 입니다.</h1>
-                            </div>
+                        <div className="h-min grid">
+                            <H1>역사를 보존하다.</H1>
+                            <H1>Kolosseum 입니다.</H1>
                             <div>
                                 <p>현재 콜로세움은 베타 서비스입니다.</p>
                             </div>
@@ -81,6 +81,6 @@ export default function Home() {
                     </div>
             )}
         </div>
-    </main>
+    </Layout>
   );
 }
