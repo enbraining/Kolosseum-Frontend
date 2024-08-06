@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link";
-import { StyledFooter } from "../styled/Styled";
+import { StyledFooter } from "../styled/Tag";
 import { CarbonLogoDiscord, GrommetIconsGithub } from "./Icons";
 
 export default function Footer(){
