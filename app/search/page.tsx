@@ -3,7 +3,6 @@
 import { useRouter, useSearchParams } from "next/navigation"
 import { useCallback, useEffect, useState } from "react"
 import issueList from '../data/issue.json'
-import SearchLayout from "../layout/SearchLayout"
 import { StyledInput } from "../styled/Styled"
 import { Issue } from "../type/issue"
 
@@ -29,7 +28,7 @@ export default function Page(){
     }, [router])
 
     return (
-        <SearchLayout>
+        <main className="mx-10" >
             <StyledInput placeholder={"년도 또는 사건을 입력해주세요."} onKeyDown={onEnter} defaultValue={search?.toString()} />
             <div className={'grid gap-y-3'}>
                 {issues.length == 0 ? <div>찾을 수 없습니다.</div> : issues.map(issue => <div key={issue.year}>
@@ -37,6 +36,6 @@ export default function Page(){
                     <p>{issue.history.map(history => `${history.name} ${history.description} `)}</p>
                 </div>)}
             </div>
-        </ SearchLayout>
+        </main >
     )
 }
