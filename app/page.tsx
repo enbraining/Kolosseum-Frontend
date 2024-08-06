@@ -1,17 +1,15 @@
 "use client"
 
-import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import allIssue from './data/issue.json';
-import { StyledInput, StyledYears } from "./styled/Styled";
+import { StyledYears } from "./styled/Styled";
 import { Issue } from "./type/issue";
 
 export default function Home() {
     const years: string[] = ['0000', ...Array.from({ length: 2024 - 1919 + 1 }, (_, index) => (1919 + index).toString())];
     const [issue, setIssue] = useState<Issue>()
     const [currentYear, setCurrentYear] = useState('0000')
-    const router = useRouter();
 
     useEffect(() => {
         const findIssues = allIssue.find(issue => issue.year == currentYear.toString());
@@ -20,16 +18,8 @@ export default function Home() {
         else setIssue(findIssues)
     }, [currentYear])
 
-    const onEnter = useCallback((e: any) => {
-        const value = e.target.value;
-        if(e.keyCode == 13){
-            router.push(`/search?v=${value}`)
-        }
-    }, [router])
-
     return (
         <main className="mt-5">
-        <StyledInput placeholder="년도 또는 사건을 입력해주세요." onKeyDown={onEnter} />
         <div className="overflow-x-scroll scrollbar-hide sm:h-[8rem] h-[7rem]">
             <StyledYears id="years" className="mt-4 mx-auto text-stone-500 [writing-mode:vertical-lr]">
             {years.map(year =>

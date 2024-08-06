@@ -4,6 +4,7 @@ import { headers } from 'next/headers';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/ReactToastify.css';
 import Footer from './components/Footer';
+import Header from './components/Header';
 import './globals.css';
 
 const inter = LocalFont({
@@ -25,6 +26,7 @@ export default function RootLayout({
   return (
     <html lang={language}>
         <body className={inter.className + " mx-10 "}>
+            <Header />
             {children}
             <Footer />
             <ToastContainer
