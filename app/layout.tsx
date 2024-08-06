@@ -24,7 +24,7 @@ export default function RootLayout({
 
   return (
     <html lang={language}>
-        <body className={inter.className + " mx-10"}>
+        <body className={inter.className + " mx-10 "}>
             {children}
             <Footer />
             <ToastContainer
