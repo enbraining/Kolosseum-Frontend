@@ -1,13 +1,12 @@
 'use client';
 
 import { H1 } from '@/app/styled/Text';
-import { AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import Layout from '../../layout/Layout';
-import { AxiosFetch } from '../../utils/axios';
 
 type Inputs = {
   email: string;
@@ -18,11 +17,12 @@ export default function Page() {
   const router = useRouter();
   const { register, handleSubmit } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    const response = (await AxiosFetch.post('/auth/join', {
-      email: data.email,
-      password: data.password,
-    }).catch((reason) => toast.error(reason.message))) as AxiosResponse;
-
+    const response = (await axios
+      .post('http://localhost:8080/auth/join', {
+        email: data.email,
+        password: data.password,
+      })
+      .catch((reason) => toast.error(reason.message))) as AxiosResponse;
     if (response.status == 200) {
       router.push('/');
     }

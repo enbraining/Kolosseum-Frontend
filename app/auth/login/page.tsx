@@ -2,13 +2,12 @@
 
 import { H1 } from '@/app/styled/Text';
 import { setCookie } from '@/app/utils/cookie';
-import { AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import Layout from '../../layout/Layout';
-import { AxiosFetch } from '../../utils/axios';
 
 type Inputs = {
   email: string;
@@ -19,14 +18,17 @@ export default function Page() {
   const router = useRouter();
   const { register, handleSubmit } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    const response = (await AxiosFetch.post('/auth/login', {
-      email: data.email,
-      password: data.password,
-    }).catch((reason) => toast.error(reason.message))) as AxiosResponse;
+    const response = (await axios
+      .post('http://localhost:8080/auth/login', {
+        email: data.email,
+        password: data.password,
+      })
+      .catch((reason: any) => toast.error(reason.message))) as AxiosResponse;
 
     if (response.status == 200) {
       setCookie('Authorization', 'Bearer ' + response.data.access_token);
       router.push('/');
+      router.refresh();
     }
   };
 

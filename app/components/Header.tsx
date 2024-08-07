@@ -5,6 +5,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
 import allNews from '../datas/news.json';
 import { StyledInput, StyledToggleInput } from '../styled/Tag';
+import { getCookie } from '../utils/cookie';
 
 export default function Header() {
   const [isOpen, setOpen] = useState(false);
@@ -20,13 +21,18 @@ export default function Header() {
     };
 
     window.addEventListener('resize', handleResize);
-
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
 
   useEffect(() => {
+    const fetchStatus = async () => {
+      if (await getCookie('Authorization')) setUser(true);
+      else setUser(false);
+    };
+
+    fetchStatus();
     setOpen(false);
   }, [pathname]);
 
@@ -56,8 +62,11 @@ export default function Header() {
             onKeyDown={onEnter}
           />
           <div className="flex ml-auto gap-x-3">
-            <Link href={'/test'}>테스트</Link>
-            <Link href={'/auth/login'}>로그인</Link>
+            {isUser ? (
+              <Link href={'/auth/logout'}>로그아웃</Link>
+            ) : (
+              <Link href={'/auth/login'}>로그인</Link>
+            )}
           </div>
         </div>
         <button className="sm:hidden ml-auto" onClick={toggleMenu}>
@@ -85,8 +94,11 @@ export default function Header() {
               placeholder={`검색하기`}
               onKeyDown={onEnter}
             />
-            <Link href={'/test'}>테스트</Link>
-            <Link href={'/auth/login'}>로그인</Link>
+            {isUser ? (
+              <Link href={'/auth/logout'}>로그아웃</Link>
+            ) : (
+              <Link href={'/auth/login'}>로그인</Link>
+            )}
           </div>
         </div>
       )}
