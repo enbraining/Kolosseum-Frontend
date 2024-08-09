@@ -12,6 +12,9 @@ export default function Footer() {
       </div>
       <div>
         <p className="text-neutral-600">개발자 김동학 | me@fodo.dev</p>
+        <p className="text-neutral-600">
+          언제든 발견된 문제가 있다면 문의해주세요.
+        </p>
       </div>
     </StyledFooter>
   );
