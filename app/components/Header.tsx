@@ -55,7 +55,7 @@ export default function Header() {
         <Link className="text-xl font-bold" href={'/'}>
           Kolosseum
         </Link>
-        <div className="sm:flex hidden items-center">
+        <div className="md:flex hidden items-center">
           <StyledInput
             placeholder={`년도 혹은 키워드를 입력해주세요.`}
             onKeyDown={onEnter}
@@ -68,7 +68,7 @@ export default function Header() {
             )}
           </div>
         </div>
-        <button className="sm:hidden ml-auto" onClick={toggleMenu}>
+        <button className="md:hidden ml-auto" onClick={toggleMenu}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"

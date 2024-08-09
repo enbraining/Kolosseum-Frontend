@@ -8,7 +8,7 @@ import allNews from './datas/news.json';
 import allNotice from './datas/notice.json';
 import Layout from './layout/Layout';
 import { StyledYears } from './styled/Tag';
-import { H1 } from './styled/Text';
+import { H1, H2 } from './styled/Text';
 import { Issue } from './types/issue';
 
 export default function Home() {
@@ -56,18 +56,23 @@ export default function Home() {
       </div>
       <div className="grid">
         {issue ? (
-          <div className="w-full mx-auto grid gap-10">
-            <h1 className="text-4xl text-neutral-600 font-bold">{`${issue.year}년, ${issue.history.length}개의 기록`}</h1>
-            {issue.history.map((history, index) => (
-              <div className="rounded-xl" key={index}>
-                <H1>{history.name}</H1>
-                <p className="text-xl font-medium">{history.description}</p>
-              </div>
-            ))}
+          <div className="w-full mx-auto">
+            <H1>{`${issue.year}년, ${issue.history.length}개의 기록`}</H1>
+            <div className="grid mt-8 md:grid-cols-2 grid-cols-1 gap-4">
+              {issue.history.map((history, index) => (
+                <div
+                  className="rounded-lg border p-4 h-[15rem] border-neutral-500"
+                  key={index}
+                >
+                  <H2>{history.name}</H2>
+                  <p>{history.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
         ) : (
           <div
-            className={'mb-5 gap-5 h-[40rem] grid sm:grid-cols-3 grid-cols-1'}
+            className={'mb-5 gap-5 h-[40rem] grid md:grid-cols-3 grid-cols-1'}
           >
             <div className="grid gap-y-4">
               <div className="border p-4 rounded-lg border-neutral-500 divide-y divide-neutral-500">
@@ -103,7 +108,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="grid col-span-1 sm:col-span-2">
+            <div className="grid col-span-1 md:col-span-2">
               <div>
                 <H1>역사를 보존하다.</H1>
                 <H1>Kolosseum 입니다.</H1>
