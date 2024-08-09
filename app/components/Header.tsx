@@ -51,7 +51,7 @@ export default function Header() {
 
   return (
     <div>
-      <div className="grid grid-cols-2 items-center my-3 mx-10">
+      <div className="grid grid-cols-2 items-center my-3 mx-20">
         <Link className="text-xl font-bold" href={'/'}>
           Kolosseum
         </Link>
