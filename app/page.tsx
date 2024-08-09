@@ -51,7 +51,7 @@ export default function Home() {
           ))}
         </StyledYears>
       </div>
-      <div className="mb-16 border-b-2 border-neutral-600 py-1">
+      <div className="mb-10 border-b-2 border-neutral-600 py-1">
         <p className="font-medium text-lg">📣 {allNotice.at(0)}</p>
       </div>
       <div className="grid">
@@ -66,16 +66,19 @@ export default function Home() {
             ))}
           </div>
         ) : (
-          <div className={'mb-5 gap-5 grid sm:grid-cols-3 grid-cols-1'}>
-            <div className="grid gap-y-14">
-              <div>
-                <div className="flex items-center">
-                  <Link href={'/news'} className="font-semibold text-2xl">
-                    최신 뉴스 {'>'}
+          <div
+            className={'mb-5 gap-5 h-[40rem] grid sm:grid-cols-3 grid-cols-1'}
+          >
+            <div className="grid gap-y-4">
+              <div className="border p-4 rounded-lg border-neutral-500 divide-y divide-neutral-500">
+                <div className="flex items-center my-2">
+                  <p className="font-semibold text-2xl">최신 뉴스</p>
+                  <Link className="ml-auto" href={'/news'}>
+                    더보기 →
                   </Link>
                 </div>
-                <div className="mt-5 grid gap-y-3">
-                  {allNews.map((news, index) => (
+                <div className="grid gap-y-3 pt-5">
+                  {allNews.slice(0, 3).map((news, index) => (
                     <div key={index}>
                       <h2 className="font-semibold">{news.name}</h2>
                       <p>{news.createdAt}</p>
@@ -83,14 +86,15 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-              <div>
-                <div className="flex items-center">
-                  <Link href={'/forum'} className="font-semibold text-2xl">
-                    커뮤니티 {'>'}
+              <div className="border p-4 divide-y divide-neutral-500 rounded-lg border-neutral-500">
+                <div className="flex items-center my-2">
+                  <p className="font-semibold text-2xl">커뮤니티</p>
+                  <Link className="ml-auto" href={'/forum'}>
+                    더보기 →
                   </Link>
                 </div>
-                <div className="mt-5 grid gap-y-3">
-                  {allNews.map((news, index) => (
+                <div className="grid gap-y-3 pt-5">
+                  {allNews.slice(0, 3).map((news, index) => (
                     <div key={index}>
                       <p className="font-semibold">{news.name}</p>
                       <p>{news.createdAt}</p>
@@ -99,11 +103,13 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="h-min grid">
-              <H1>역사를 보존하다.</H1>
-              <H1>Kolosseum 입니다.</H1>
+            <div className="grid col-span-1 sm:col-span-2">
               <div>
-                <p>현재 콜로세움은 베타 서비스입니다.</p>
+                <H1>역사를 보존하다.</H1>
+                <H1>Kolosseum 입니다.</H1>
+                <div>
+                  <p>현재 콜로세움은 베타 서비스입니다.</p>
+                </div>
               </div>
             </div>
           </div>
