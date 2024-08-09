@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
-import allNews from '../datas/news.json';
 import { StyledInput, StyledToggleInput } from '../styled/Tag';
 import { getCookie } from '../utils/cookie';
 
@@ -58,7 +57,7 @@ export default function Header() {
         </Link>
         <div className="sm:flex hidden items-center">
           <StyledInput
-            placeholder={`${allNews.at(0)?.name}`}
+            placeholder={`년도 혹은 키워드를 입력해주세요.`}
             onKeyDown={onEnter}
           />
           <div className="flex ml-auto gap-x-3">
