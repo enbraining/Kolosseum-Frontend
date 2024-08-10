@@ -1,13 +1,12 @@
 'use client';
 
-import { H1 } from '@/app/styled/Text';
-import { AxiosFetch } from '@/app/utils/axios';
+import { H1 } from '@/app/service/styles/Text';
+import { AxiosFetch } from '@/app/service/utils/axios';
 import { AxiosResponse } from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
-import Layout from '../../layout/Layout';
 
 type Inputs = {
   email: string;
@@ -32,7 +31,7 @@ export default function Page() {
   };
 
   return (
-    <Layout>
+    <div>
       <div className="grid min-h-[50vh]">
         <div className="m-auto md:w-1/3 w-3/4 grid gap-y-5">
           <div className="flex items-center">
@@ -62,6 +61,6 @@ export default function Page() {
           </form>
         </div>
       </div>
-    </Layout>
+    </div>
   );
 }

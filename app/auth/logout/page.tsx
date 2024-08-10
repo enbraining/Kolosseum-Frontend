@@ -1,6 +1,6 @@
 'use client';
 
-import { removeCookie } from '@/app/utils/cookie';
+import { removeCookie } from '@/app/actions';
 import { useRouter } from 'next/navigation';
 
 export default function Page() {

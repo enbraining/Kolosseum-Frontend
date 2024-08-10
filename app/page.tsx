@@ -3,13 +3,12 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import allIssue from './datas/issue.json';
-import allNews from './datas/news.json';
-import allNotice from './datas/notice.json';
-import Layout from './layout/Layout';
-import { StyledYears } from './styled/Tag';
-import { H1, H2 } from './styled/Text';
-import { Issue } from './types/issue';
+import { allIssue } from './service/mocks/issue';
+import { allNews } from './service/mocks/news';
+import { allNotice } from './service/mocks/notice';
+import { StyledYears } from './service/styles/Tag';
+import { H1, H2 } from './service/styles/Text';
+import { Issue } from './service/types/issue';
 
 export default function Home() {
   const years: string[] = [
@@ -32,7 +31,7 @@ export default function Home() {
   }, [currentYear]);
 
   return (
-    <Layout>
+    <div>
       <div className="overflow-x-scroll scrollbar-hide sm:h-[6rem] h-[5rem]">
         <StyledYears
           id="years"
@@ -120,6 +119,6 @@ export default function Home() {
           </div>
         )}
       </div>
-    </Layout>
+    </div>
   );
 }

@@ -3,9 +3,9 @@ import LocalFont from 'next/font/local';
 import { headers } from 'next/headers';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/ReactToastify.css';
-import Footer from './components/Footer';
-import Header from './components/Header';
 import './globals.css';
+import Footer from './service/components/Footer';
+import Header from './service/components/Header';
 
 const inter = LocalFont({
   src: '../public/fonts/PretendardVariable.woff2',
@@ -19,28 +19,28 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode,
+  children: React.ReactNode;
 }>) {
-  const language = headers().get("Accept-Language")?.split(/,/).at(0)
+  const language = headers().get('Accept-Language')?.split(/,/).at(0);
 
   return (
     <html lang={language}>
-        <body className={inter.className}>
-            <Header />
-            {children}
-            <Footer />
-            <ToastContainer
-                position="top-right"
-                autoClose={3000}
-                hideProgressBar={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-            />
-        </body>
+      <body className={inter.className + ' sm:mx-20 mx-10'}>
+        <Header />
+        {children}
+        <Footer />
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+      </body>
     </html>
   );
 }

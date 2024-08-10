@@ -1,19 +1,24 @@
 'use client';
 
-import { H1 } from '@/app/styled/Text';
-import { AxiosFetch } from '@/app/utils/axios';
-import { setCookie } from '@/app/utils/cookie';
+import { setCookie } from '@/app/actions';
+import { H1 } from '@/app/service/styles/Text';
+import { AxiosFetch } from '@/app/service/utils/axios';
 import { AxiosResponse } from 'axios';
+import dayjs from 'dayjs';
+import timezone from 'dayjs/plugin/timezone';
+import utc from 'dayjs/plugin/utc';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
-import Layout from '../../layout/Layout';
 
 type Inputs = {
   email: string;
   password: string;
 };
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 export default function Page() {
   const router = useRouter();
@@ -29,15 +34,19 @@ export default function Page() {
       )) as AxiosResponse;
 
     if (response.status == 200) {
-      setCookie('Authorization', 'Bearer ' + response.data.access_token);
+      setCookie(
+        'Authorization',
+        'Bearer ' + response.data.access_token,
+        new Date(response.data.expired * 1000),
+      );
       router.push('/');
       router.refresh();
     }
   };
 
   return (
-    <Layout>
-      <div className="grid min-h-[50vh]">
+    <div className="min-h-screen">
+      <div className="grid min-h-[70vh]">
         <div className="m-auto md:w-1/3 w-3/4 grid gap-y-5">
           <div className="flex items-center">
             <H1>로그인</H1>
@@ -66,6 +75,6 @@ export default function Page() {
           </form>
         </div>
       </div>
-    </Layout>
+    </div>
   );
 }

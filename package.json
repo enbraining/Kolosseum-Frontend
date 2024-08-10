@@ -13,6 +13,7 @@
   "dependencies": {
     "axios": "^1.7.3",
     "chart.js": "^4.4.3",
+    "dayjs": "^1.11.12",
     "fs": "0.0.1-security",
     "next": "14.2.5",
     "react": "^18.3.1",
@@ -21,7 +22,11 @@
     "react-hook-form": "^7.52.2",
     "react-toastify": "^10.0.5",
     "styled-components": "^6.1.12",
-    "tailwind-scrollbar-hide": "^1.1.7"
+    "swr": "^2.2.5",
+    "tailwind-scrollbar-hide": "^1.1.7",
+    "timezone": "link:dayjs/plugin/timezone",
+    "utc": "link:dayjs/plugin/utc",
+    "zustand": "^4.5.4"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.6.1",

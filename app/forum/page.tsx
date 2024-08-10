@@ -1,9 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import Layout from '../layout/Layout';
-import { StyledInput } from '../styled/Tag';
-import { H1 } from '../styled/Text';
+import Layout from '../service/layouts/Layout';
+import { StyledInput } from '../service/styles/Tag';
+import { H1 } from '../service/styles/Text';
 
 export default function Page() {
   const mocks = [

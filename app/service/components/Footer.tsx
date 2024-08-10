@@ -1,11 +1,11 @@
 'use client';
 
-import { StyledFooter } from '../styled/Tag';
-import { H1 } from '../styled/Text';
+import { StyledFooter } from '../styles/Tag';
+import { H1 } from '../styles/Text';
 
 export default function Footer() {
   return (
-    <StyledFooter className="border-t grid pt-6 my-10 mx-20 gap-y-3">
+    <StyledFooter className="border-t grid pt-6 my-10 gap-y-3">
       <div>
         <H1>Kolosseum</H1>
         <p className="text-neutral-600">역사를 잊은 민족에게 미래는 없다.</p>
