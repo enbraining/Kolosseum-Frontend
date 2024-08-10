@@ -49,7 +49,7 @@ export default function Header() {
 
     fetchStatus();
     setOpen(false);
-  }, [pathname]);
+  }, [pathname, setUser]);
 
   const toggleMenu = useCallback(() => {
     setOpen(!isOpen);

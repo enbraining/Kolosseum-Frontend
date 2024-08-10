@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Layout from '../service/layouts/Layout';
 import { StyledInput } from '../service/styles/Tag';
 import { H1 } from '../service/styles/Text';
 
@@ -30,7 +29,7 @@ export default function Page() {
   ];
 
   return (
-    <Layout>
+    <div>
       <div className="grid mt-20">
         <div className="mx-auto w-4/5">
           <div className="grid grid-cols-3 items-center">
@@ -54,6 +53,6 @@ export default function Page() {
           </div>
         </div>
       </div>
-    </Layout>
+    </div>
   );
 }

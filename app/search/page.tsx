@@ -2,8 +2,7 @@
 
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import issueList from '../datas/issue.json';
-import Layout from '../service/layouts/Layout';
+import { allIssue } from '../service/mocks/issue';
 import { Issue } from '../service/types/issue';
 
 export default function Page() {
@@ -15,7 +14,7 @@ export default function Page() {
   useEffect(() => {
     setSearch(searchParams.get('v'));
     setIssues(
-      issueList.filter((issue) => {
+      allIssue.filter((issue) => {
         return (
           issue.year == search ||
           `${issue.year} ${issue.history.map((history) => `${history.name} ${history.description}`).join(' ')}`.includes(
@@ -27,7 +26,7 @@ export default function Page() {
   }, [search, searchParams]);
 
   return (
-    <Layout>
+    <div>
       <div className={'grid gap-y-3'}>
         {issues.length == 0 ? (
           <div>찾을 수 없습니다.</div>
@@ -44,6 +43,6 @@ export default function Page() {
           ))
         )}
       </div>
-    </Layout>
+    </div>
   );
 }
