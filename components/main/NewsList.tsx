@@ -17,8 +17,8 @@ export default function NewsList() {
   return (
     <div className="border p-4 divide-y divide-neutral-500 rounded-lg border-neutral-500">
       <div className="flex items-center my-2">
-        <p className="font-semibold text-2xl">커뮤니티</p>
-        <Link className="ml-auto" href={'/forum'}>
+        <p className="font-semibold text-2xl">최신 뉴스</p>
+        <Link className="ml-auto" href={'/news'}>
           더보기 →
         </Link>
       </div>

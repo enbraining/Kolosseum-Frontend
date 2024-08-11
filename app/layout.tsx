@@ -1,10 +1,10 @@
+import Footer from '@/components/common/Footer';
+import Header from '@/components/common/Header';
 import type { Metadata } from 'next';
 import LocalFont from 'next/font/local';
 import { headers } from 'next/headers';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/ReactToastify.css';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
 import './globals.css';
 
 const inter = LocalFont({

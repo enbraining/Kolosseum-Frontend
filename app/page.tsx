@@ -71,9 +71,7 @@ export default function Home() {
             </div>
           </div>
         ) : (
-          <div
-            className={'mb-5 gap-5 h-[40rem] grid md:grid-cols-3 grid-cols-1'}
-          >
+          <div className={'mb-5 gap-5 grid md:grid-cols-3 grid-cols-1'}>
             <div className="grid gap-y-4">
               <NewsList />
               <BoardList />
