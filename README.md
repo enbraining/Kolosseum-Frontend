@@ -13,3 +13,9 @@ const [list, setList] = useState<List[]>([]);
 ```ts
 const [item, setItem] = useState<Item | null>(null);
 ```
+
+- 리스트의 변수명에 ~s를 사용하지말고 ~List를 붙이기
+
+```ts
+const exampleList = [1, 2, 3, 4, 5];
+```
