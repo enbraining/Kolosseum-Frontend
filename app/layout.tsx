@@ -25,7 +25,7 @@ export default function RootLayout({
 
   return (
     <html lang={language}>
-      <body className={inter.className + ' sm:mx-20 mx-10'}>
+      <body className={inter.className + ' md:mx-20 mx-10'}>
         <Header />
         {children}
         <Footer />

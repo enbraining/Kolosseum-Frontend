@@ -33,7 +33,7 @@ export default function Home() {
 
   return (
     <div>
-      <div className="overflow-x-scroll scrollbar-hide sm:h-[6rem] h-[5rem]">
+      <div className="overflow-x-scroll scrollbar-hide md:h-[6rem] h-[5rem]">
         <StyledYears
           id="years"
           className="mx-auto text-stone-500 [writing-mode:vertical-lr]"
