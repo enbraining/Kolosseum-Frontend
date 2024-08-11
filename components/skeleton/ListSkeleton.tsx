@@ -1,6 +1,6 @@
-import { Skeleton } from './ui/skeleton';
+import { Skeleton } from '../ui/skeleton';
 
-export function SkeletonDemo() {
+export function ListSkeleton() {
   return (
     <div className="grid gap-y-3">
       <div className="grid gap-y-2">

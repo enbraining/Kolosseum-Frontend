@@ -1,7 +1,7 @@
 import { AxiosFetch } from '@/app/service/utils/axios';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { SkeletonDemo } from '../SkeletonDemo';
+import { ListSkeleton } from '../skeleton/ListSkeleton';
 
 export default function NewsList() {
   const [news, setNews] = useState<any[]>();
@@ -31,7 +31,7 @@ export default function NewsList() {
             </div>
           ))
         ) : (
-          <SkeletonDemo />
+          <ListSkeleton />
         )}
       </div>
     </div>
