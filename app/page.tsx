@@ -18,14 +18,14 @@ export default function Home() {
       (1919 + index).toString(),
     ),
   ];
-  const [issue, setIssue] = useState<Issue>();
+  const [issue, setIssue] = useState<Issue | null>(null);
   const [currentYear, setCurrentYear] = useState('0000');
 
   useEffect(() => {
     const findIssues = allIssue.find(
       (issue) => issue.year == currentYear.toString(),
     );
-    if (currentYear == '0000') setIssue(undefined);
+    if (currentYear == '0000') setIssue(null);
     else if (!findIssues)
       toast.error(`${currentYear}년에는 현재 데이터가 없습니다.`);
     else setIssue(findIssues);

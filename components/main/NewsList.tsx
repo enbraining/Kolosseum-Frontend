@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { ListSkeleton } from '../skeleton/ListSkeleton';
 
 export default function NewsList() {
-  const [news, setNews] = useState<any[]>();
+  const [news, setNews] = useState<any[] | null>(null);
 
   useEffect(() => {
     const fetchBoards = async () => {

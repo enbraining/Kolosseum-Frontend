@@ -8,7 +8,7 @@ import { Issue } from '../service/types/issue';
 export default function Page() {
   const searchParams = useSearchParams();
 
-  const [search, setSearch] = useState<string | null>();
+  const [search, setSearch] = useState<string | null>(null);
   const [issues, setIssues] = useState<Issue[]>([]);
 
   useEffect(() => {
