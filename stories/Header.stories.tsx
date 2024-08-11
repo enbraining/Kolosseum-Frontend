@@ -1,4 +1,4 @@
-import Header from '../app/service/components/Header';
+import Header from '../components/Header';
 
 export default {
   component: Header,

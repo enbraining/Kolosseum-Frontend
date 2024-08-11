@@ -1,10 +1,11 @@
 'use client';
 
-import Link from 'next/link';
+import About from '@/components/main/About';
+import { default as BoardList } from '@/components/main/BoardList';
+import NewsList from '@/components/main/NewsList';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { allIssue } from './service/mocks/issue';
-import { allNews } from './service/mocks/news';
 import { allNotice } from './service/mocks/notice';
 import { StyledYears } from './service/styles/Tag';
 import { H1, H2 } from './service/styles/Text';
@@ -50,7 +51,7 @@ export default function Home() {
           ))}
         </StyledYears>
       </div>
-      <div className="mb-10 border-b-2 border-neutral-600 py-1">
+      <div className="mb-6 border-b-2 border-neutral-600 py-1">
         <p className="font-medium text-lg">📣 {allNotice.at(0)}</p>
       </div>
       <div className="grid">
@@ -74,48 +75,10 @@ export default function Home() {
             className={'mb-5 gap-5 h-[40rem] grid md:grid-cols-3 grid-cols-1'}
           >
             <div className="grid gap-y-4">
-              <div className="border p-4 rounded-lg border-neutral-500 divide-y divide-neutral-500">
-                <div className="flex items-center my-2">
-                  <p className="font-semibold text-2xl">최신 뉴스</p>
-                  <Link className="ml-auto" href={'/news'}>
-                    더보기 →
-                  </Link>
-                </div>
-                <div className="grid gap-y-3 pt-5">
-                  {allNews.slice(0, 3).map((news, index) => (
-                    <div key={index}>
-                      <h2 className="font-semibold">{news.name}</h2>
-                      <p>{news.createdAt}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="border p-4 divide-y divide-neutral-500 rounded-lg border-neutral-500">
-                <div className="flex items-center my-2">
-                  <p className="font-semibold text-2xl">커뮤니티</p>
-                  <Link className="ml-auto" href={'/forum'}>
-                    더보기 →
-                  </Link>
-                </div>
-                <div className="grid gap-y-3 pt-5">
-                  {allNews.slice(0, 3).map((news, index) => (
-                    <div key={index}>
-                      <p className="font-semibold">{news.name}</p>
-                      <p>{news.createdAt}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <NewsList />
+              <BoardList />
             </div>
-            <div className="grid col-span-1 md:col-span-2">
-              <div>
-                <H1>역사를 보존하다.</H1>
-                <H1>Kolosseum 입니다.</H1>
-                <div>
-                  <p>현재 콜로세움은 베타 서비스입니다.</p>
-                </div>
-              </div>
-            </div>
+            <About />
           </div>
         )}
       </div>

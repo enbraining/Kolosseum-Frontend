@@ -31,7 +31,7 @@ export default function Page() {
   return (
     <div>
       <div className="grid mt-20">
-        <div className="mx-auto w-4/5">
+        <div className="mx-auto">
           <div className="grid grid-cols-3 items-center">
             <div>
               <H1>커뮤니티</H1>

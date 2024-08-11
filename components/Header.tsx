@@ -4,10 +4,10 @@ import { getCookie } from '@/app/actions';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
-import { StyledInput, StyledToggleInput } from '../styles/Tag';
-import { User } from '../types/user';
-import { WithCredential } from '../utils/axios';
-import { useUserStore } from '../utils/zustand';
+import { StyledInput, StyledToggleInput } from '../app/service/styles/Tag';
+import { User } from '../app/service/types/user';
+import { WithCredential } from '../app/service/utils/axios';
+import { useUserStore } from '../app/service/utils/zustand';
 
 export default function Header() {
   const [isOpen, setOpen] = useState(false);
@@ -110,7 +110,7 @@ export default function Header() {
       </div>
       <div className="relative">
         {isOpen && (
-          <div className="absolute w-full min-h-screen bg-[#FFF9E7] pt-5">
+          <div className="absolute w-full min-h-screen bg-[#FFFDF7] pt-5">
             <div className="grid gap-y-2 text-xl font-semibold">
               <StyledToggleInput
                 className="w-full"

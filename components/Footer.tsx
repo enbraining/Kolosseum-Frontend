@@ -1,7 +1,7 @@
 'use client';
 
-import { StyledFooter } from '../styles/Tag';
-import { H1 } from '../styles/Text';
+import { StyledFooter } from '../app/service/styles/Tag';
+import { H1 } from '../app/service/styles/Text';
 
 export default function Footer() {
   return (

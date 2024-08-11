@@ -1,4 +1,4 @@
-import Footer from '../app/service/components/Footer';
+import Footer from '../components/Footer';
 
 export default {
   component: Footer,
