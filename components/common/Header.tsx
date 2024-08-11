@@ -110,7 +110,7 @@ export default function Header() {
       </div>
       <div className="relative">
         {isOpen && (
-          <div className="absolute w-full min-h-screen bg-[#FFFDF7] pt-5">
+          <div className="absolute w-full min-h-screen bg-[#FFFDF7] pt-5 z-10">
             <div className="grid gap-y-2 text-xl font-semibold">
               <StyledToggleInput
                 className="w-full"
