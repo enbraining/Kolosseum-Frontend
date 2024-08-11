@@ -2,13 +2,13 @@
 
 import About from '@/components/main/About';
 import { default as BoardList } from '@/components/main/BoardList';
+import IssueList from '@/components/main/IssueList';
 import NewsList from '@/components/main/NewsList';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { allIssue } from './service/mocks/issue';
 import { allNotice } from './service/mocks/notice';
 import { StyledYears } from './service/styles/Tag';
-import { H1, H2 } from './service/styles/Text';
 import { Issue } from './service/types/issue';
 
 export default function Home() {
@@ -56,20 +56,7 @@ export default function Home() {
       </div>
       <div className="grid">
         {issue ? (
-          <div className="w-full mx-auto">
-            <H1>{`${issue.year}년, ${issue.history.length}개의 기록`}</H1>
-            <div className="grid mt-8 md:grid-cols-2 grid-cols-1 gap-4">
-              {issue.history.map((history, index) => (
-                <div
-                  className="rounded-lg border p-4 h-[15rem] border-neutral-500"
-                  key={index}
-                >
-                  <H2>{history.name}</H2>
-                  <p>{history.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+          <IssueList issue={issue} />
         ) : (
           <div className={'mb-5 gap-5 grid md:grid-cols-3 grid-cols-1'}>
             <div className="grid gap-y-4">
