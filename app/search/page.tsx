@@ -9,11 +9,11 @@ export default function Page() {
   const searchParams = useSearchParams();
 
   const [search, setSearch] = useState<string | null>(null);
-  const [issues, setIssues] = useState<Issue[]>([]);
+  const [issueList, setIssueList] = useState<Issue[]>([]);
 
   useEffect(() => {
     setSearch(searchParams.get('v'));
-    setIssues(
+    setIssueList(
       allIssue.filter((issue) => {
         return (
           issue.year == search ||
@@ -28,10 +28,10 @@ export default function Page() {
   return (
     <div>
       <div className={'grid gap-y-3'}>
-        {issues.length == 0 ? (
+        {issueList.length == 0 ? (
           <div>찾을 수 없습니다.</div>
         ) : (
-          issues.map((issue) => (
+          issueList.map((issue) => (
             <div key={issue.year}>
               <h1 className="font-semibold text-2xl">{issue.year}</h1>
               <p>

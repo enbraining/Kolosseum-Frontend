@@ -19,3 +19,9 @@ const [item, setItem] = useState<Item | null>(null);
 ```ts
 const exampleList = [1, 2, 3, 4, 5];
 ```
+
+- id를 반환하는 API에서 받아온 데이터를 사용하는 map은 index를 사용하지 말기
+
+```tsx
+postList.map((post) => <div key={post.id}>{post.title}</div>);
+```

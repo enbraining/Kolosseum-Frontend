@@ -4,14 +4,14 @@ import { useEffect, useState } from 'react';
 import { ListSkeleton } from '../skeleton/ListSkeleton';
 
 export default function NewsList() {
-  const [news, setNews] = useState<any[] | null>(null);
+  const [newsList, setNewsList] = useState<any[] | null>(null);
 
   useEffect(() => {
-    const fetchBoards = async () => {
-      setNews((await AxiosFetch().get('/board?count=4')).data);
+    const fetchBoardList = async () => {
+      setNewsList((await AxiosFetch().get('/board?count=4')).data);
     };
 
-    fetchBoards();
+    fetchBoardList();
   }, []);
 
   return (
@@ -23,9 +23,9 @@ export default function NewsList() {
         </Link>
       </div>
       <div className="grid gap-y-3 pt-5">
-        {news ? (
-          news.map((news, index) => (
-            <div key={index}>
+        {newsList ? (
+          newsList.map((news) => (
+            <div key={news.id}>
               <p className="font-semibold">{news.title}</p>
               <p>{news.published}</p>
             </div>
