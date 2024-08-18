@@ -9,7 +9,7 @@ export function ListSkeleton() {
       </div>
       <div className="grid gap-y-2">
         <Skeleton className="h-4 w-[250px] bg-neutral-300" />
-        <Skeleton className="h-4 w-[300px] bg-neutral-300" />
+        <Skeleton className="h-4 w-[225px] bg-neutral-300" />
       </div>
       <div className="grid gap-y-2">
         <Skeleton className="h-4 w-[250px] bg-neutral-300" />
